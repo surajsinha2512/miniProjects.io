@@ -1,0 +1,53 @@
+<!-- HTML here -->
+<html>
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../../css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+   <div class="something container">
+       <div class="something" align="center"> Modern Calculator</div>
+        <div class="something"> </div>
+<div class="container">
+     <div class="row change">
+   <div id="hello"></div>
+   </div>
+    <div class="row">
+       <button id="plus" onclick="operator(this)" class="btn btn-primary col">+</button>
+       <button id="minus" onclick="operator(this)" class="btn btn-primary col">-</button>
+       <button id="divide" onclick="operator(this)" class="btn btn-primary col">/</button>
+   </div>
+    <div class="row">
+       <button id="block1" onclick="operation(this)" class="btn btn-primary col">1</button>
+       <button id="block2" onclick="operation(this)" class="btn btn-primary col">2</button>
+       <button id="block3" onclick="operation(this)" class="btn btn-primary col">3</button>
+   </div>
+      <div class="row">
+       <button id="block4" onclick="operation(this)" class="btn btn-primary col">4</button>
+       <button id="block5" onclick="operation(this)" class="btn btn-primary col">5</button>
+       <button id="block6" onclick="operation(this)" class="btn btn-primary col">6</button>
+   </div>
+      <div class="row">
+       <button id="block7" onclick="operation(this)" class="btn btn-primary col">7</button>
+       <button id="block8" onclick="operation(this)" class="btn btn-primary col">8</button>
+       <button id="block9" onclick="operation(this)" class="btn btn-primary col">9</button>
+   </div>
+       <div class="row">
+       <button id="dot" onclick="operation(this)" class="btn btn-primary col">.</button>
+       <button id="block0" onclick="operation(this)" class="btn btn-primary col">0</button>
+       <button id="multiply" onclick="operator(this)" class="btn btn-primary col">*</button>
+   </div>
+   <div class="row">
+       <button id="ans" onclick="operation(this)" class="btn btn-primary col">=</button>
+       <button id="clr" onclick="clean()" class="btn btn-primary col">Clear</button>
+   </div>
+
+</div>
+</div>
+<div id="d1"></div>
+<div id="d2"></div>
+</body>
+</html>

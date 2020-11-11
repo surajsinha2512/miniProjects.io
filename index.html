@@ -1,0 +1,152 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="C:/Users/ANIKET SINHA/bootstrap-4.5.2-dist/css">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        
+    </head>  
+        <body id="container">
+    <!--  Navbar  started-->
+    
+    <nav id="navbar" class="navbar-expand-lg navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <div class="mr-auto navbar-brand"> MiniProjects</div>
+          
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+
+
+  <!--  Navbar  Ended-->
+     <botton type="button" onclick="swapTheme()">Night Mode</botton>
+ <!-- Container Element starts-->
+          <div class=" margin"></div>
+        <div class="container-fluid">
+            <div class="row">
+
+             <div class="col-2 create-scroll">
+               <div class="container">
+               <div class="row border-sm bg-success text-light">Tic Tac toe </div>  
+               <div class="row border bg-success text-light"> Tic Tac toe </div>  
+               <div class="row border bg-success text-light"> Tic Tac toe </div>  
+               <div class="row border-sm bg-success text-light"> Tic Tac toe </div>  
+               <div class="row border bg-success text-light"> Tic Tac toe </div>  
+               </div>
+               
+             </div>
+
+                <div class="card text-white bg-primary" style="max-width: 18rem;">
+                    <div class="card-header">Calculator</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Do your computation</h5>
+                      <p class="card-text">Awesome Interface for calculation</p>
+                    </div>
+                    <a href="miniProjects/calculator/" class="btn btn-light btn-outline-danger">Open Calculator</a>
+                </div>
+
+
+                <div class="card text-white bg-primary" style="max-width: 18rem;">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Primary card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <a href="#" class="btn btn-light btn-outline-danger">Go somewhere</a>
+                  </div>
+
+
+
+                  <div class="card text-white bg-primary" style="max-width: 18rem;">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Primary card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <a href="#" class="btn btn-light btn-outline-danger">Go somewhere</a>
+                  </div>
+               
+            
+             
+        
+        
+        
+            </div>
+        </div>
+
+         <!-- Container Elements ends-->
+
+        </body>
+  
+</html>
+<style>
+
+  
+    *{
+       box-sizing: border-box;
+       padding :10px;
+     
+    }
+ 
+    .margin {
+        padding:35px;
+    }
+  
+  
+    .row{
+        display:flex;
+        justify-content: space-between;
+      
+    }
+    .create-scroll{
+        height:350px;
+        overflow-y:scroll;
+    }
+</style>
+
+
+
+<script>
+
+function swapTheme() {
+ let playground=document.getElementById("container")
+  if(playground.classList.contains("bg-dark")){
+      playground.classList.remove("bg-dark");
+       playground.classList.add("bg-light");
+  }
+  else {
+       playground.classList.remove("bg-light");
+       playground.classList.add("bg-dark");
+  }
+  let button=document.getElementById("navbar")
+   if(button.classList.contains("navbar-light")){
+      button.classList.remove("navbar-light");
+       button.classList.add("navbar-dark");
+  }
+  else {
+       button.classList.remove("navbar-dark");
+       button.classList.add("navbar-light");
+  }
+
+  let button1=document.getElementById("navbar")
+   if(button1.classList.contains("bg-light")){
+      button1.classList.remove("bg-light");
+       button1.classList.add("bg-dark");
+  }
+  else {
+       button1.classList.remove("bg-dark");
+       button1.classList.add("bg-light");
+  }
+
+
+
+}
+
+
+</script>

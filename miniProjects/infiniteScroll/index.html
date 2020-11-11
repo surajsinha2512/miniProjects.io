@@ -1,0 +1,33 @@
+<html>
+    <head>
+       
+    </head>
+    <title>
+        Infinite Scroll
+    </title>
+    <body>
+<div id="some" >
+</div>
+</body>
+</html>
+
+
+<script>
+let element=document.querySelector("#some");
+console.log("working")
+window.addEventListener("scroll",()=>{ 
+    console.log("working");
+    if(window.scrollY + window.innerHeight+5 >=document.documentElement.scrollHeight){
+        fun();
+      }
+});
+let i=0;
+ function fun (){
+    for(let j=0;j<100;j++){
+   let addSome=document.createElement("div")
+   addSome.innerHTML="Time Stamp "+i++;
+   element.appendChild(addSome)
+ }
+ }
+fun();
+</script>
