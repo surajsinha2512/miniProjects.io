@@ -1,0 +1,251 @@
+
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="../tryHere/valid.js"></script>
+        </head>
+        <body >
+           
+            <h1 id="some" class="" text-align="center"> Lets Play Tic Tac Toe </h1>
+            <div id="image" height="100%" width="100%" ></div>
+        <div class="container">
+             <div class="row">
+                <input type="button" id="1" onclick="operation(this)" class="btn btn-danger btn-outline-danger col">
+                <input type="button" id="2" onclick="operation(this)" class="btn btn-danger btn-outline-danger col">
+                <input type="button" id="3" onclick="operation(this)" class="btn btn-danger btn-outline-danger col">
+            </div>
+             <div class="row">
+                <input type="button" id="4" onclick="operation(this)" class="btn btn-danger btn-outline-danger col">
+                <input type="button" id="5" onclick="operation(this)" class="btn btn-danger btn-outline-danger col">
+                <input type="button" id="6" onclick="operation(this)" class="btn btn-danger btn-outline-danger col">
+            </div>
+               <div class="row">
+                <input type="button" id="7" onclick="operation(this)" class="btn btn-danger btn-outline-danger col">
+                <input type="button" id="8" onclick="operation(this)" class="btn btn-danger btn-outline-danger col">
+                <input type="button" id="9" onclick="operation(this)" class="btn btn-danger btn-outline-danger col">
+            </div>
+            <br>
+            <h3 id="renderPlayerName" class="py-3 m-5 "></h3>
+        </div>
+
+
+   
+
+        </body>
+</html>
+
+<style>
+    #renderPlayerName{
+        text-align:center;
+        color:white;
+    }
+    #some{
+        text-align:center;
+        position: absolute;
+        left:30%;
+       
+        color:white;
+    }
+ 
+    .col {
+    background-color:red;
+    height:100px;
+    width:100px;
+    margin:3px;
+    border: 3px solid black;
+}
+.container{
+
+ position: absolute;
+ justify-content: center;
+ align-items: center;
+ top: 30%;
+ 
+
+}
+.row{
+    
+    display :flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+#image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img4.jpg");
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+</style>
+
+
+
+
+
+<script>
+
+this.arr=[["","",""],["","",""],["","",""]];
+
+this.playerTurn="X"
+
+// Taking player input one after another
+
+function operation(val){
+    let idSelected=val.id 
+    let getInputIndex=document.getElementById(idSelected)
+    if(getInputIndex.value==""){
+        getInputIndex.value=player()
+        console.log()
+    }
+    updateArray()
+    console.log(this.arr)
+    
+    check(arr)
+}
+
+//update input in array as game progress
+
+ function updateArray() {
+        for(let i=0; i<3; i++) {
+            for(let j=0; j<3; j++) {
+              //think logic here  
+                this.arr[i][j]=document.getElementById(3*i+j+1).value
+            }
+        }
+        console.log(p1+" "+p2)
+    } 
+
+// checking winning ,loosing or draw condtion using updated array arr[][]
+
+ function check(arr){
+
+        let won = true;
+        
+        // check for rows
+        for(let i=0; i<3;i++) {
+            won = true;
+
+            for(let j=1; j<3; j++) {
+                if(this.arr[i][j] !== this.arr[i][j-1]) {
+                    won = false;
+                    break;
+                }
+            }
+            if(won && this.arr[i][0]!== '') {
+                return winnningPopUp(this.arr[i][0]);
+            }
+        }
+        // check for cols
+        for(let j=0; j<3; j++) {
+            won = true;
+
+            for(let i=1; i<3; i++) {
+                if(this.arr[i][j] !== this.arr[i-1][j]) {
+                    won = false;
+                    break;
+                }
+            }
+            if(won && this.arr[0][j]!== '') {
+                return winnningPopUp(this.arr[0][j]);
+            }
+        }
+        // check forward diagnol
+        won = true;
+        for(let i=1; i<3; i++) {
+            if(this.arr[i][i] !== this.arr[i-1][i-1]) {
+                    won = false;
+                    break;
+                }
+        }
+        if(won && this.arr[0][0]!== '') {
+                return winnningPopUp(this.arr[0][0]);
+        }
+        // check anti-diagnol
+        won = true;
+        for(let i=1; i<3; i++) {
+            if(this.arr[i][2-i] !== this.arr[i-1][2-i+1]) {
+                    won = false;
+                    break;
+                }
+        }
+        if(won && this.arr[2][0]!== '') {
+                return winnningPopUp(this.arr[2][0]);
+        }
+        // check for draw
+        let draw = true;
+        for(let i=0; i<3; i++) {
+            for(let j=0; j<3; j++) {
+                if(this.arr[i][j] === '') {
+                    draw = false;
+                    break;
+                }
+            }
+            if(draw == false) {
+                break;
+            }
+        }
+        if(draw) {
+            return winnningPopUp();
+        }
+ 
+ }
+
+ // player Turn one after another
+
+function player(){
+    const playerName=document.getElementById("renderPlayerName")
+    playerName.innerHTML=this.playerTurn+" Your Turn";
+    this.playerTurn=this.playerTurn==="X"?"O":"X"
+    return this.playerTurn;
+}
+
+// Result output using alert 
+
+function winnningPopUp(playerElement){
+  if(playerElement==undefined){
+  alert("Match Draw")
+  
+        for(let i=0; i<3; i++) {
+            for(let j=0; j<3; j++) {
+              //think logic here  
+              document.getElementById(3*i+j+1).value=""
+            }
+        }
+  
+
+  
+  }
+  else if(playerElement){
+   
+      alert(playerElement+"wins")
+      for(let i=0; i<3; i++) {
+            for(let j=0; j<3; j++) {
+              //think logic here  
+              document.getElementById(3*i+j+1).value=""
+            }
+        }
+     
+  }
+ 
+ 
+}   
+
+
+
+
+</script>
+
+
+
+
+
+
