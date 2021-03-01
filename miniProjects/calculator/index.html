@@ -13,12 +13,12 @@
         <div class="something"> </div>
 <div class="container">
      <div class="row change">
-   <div id="hello"></div>
+   <div id="hello" value=""></div>
    </div>
     <div class="row">
-       <button id="plus" onclick="operator(this)" class="btn btn-primary col">+</button>
-       <button id="minus" onclick="operator(this)" class="btn btn-primary col">-</button>
-       <button id="divide" onclick="operator(this)" class="btn btn-primary col">/</button>
+       <button id="plus" onclick="operation(this)" class="btn btn-primary col">+</button>
+       <button id="minus" onclick="operation(this)" class="btn btn-primary col">-</button>
+       <button id="divide" onclick="operation(this)" class="btn btn-primary col">/</button>
    </div>
     <div class="row">
        <button id="block1" onclick="operation(this)" class="btn btn-primary col">1</button>
@@ -38,11 +38,11 @@
        <div class="row">
        <button id="dot" onclick="operation(this)" class="btn btn-primary col">.</button>
        <button id="block0" onclick="operation(this)" class="btn btn-primary col">0</button>
-       <button id="multiply" onclick="operator(this)" class="btn btn-primary col">*</button>
+       <button id="multiply" onclick="operation(this)" class="btn btn-primary col">*</button>
    </div>
    <div class="row">
-       <button id="ans" onclick="operation(this)" class="btn btn-primary col">=</button>
-       <button id="clr" onclick="clean()" class="btn btn-primary col">Clear</button>
+       <button id="ans" onclick="calculate(this)" class="btn btn-primary col">=</button>
+       <button id="clr" onclick="clean(this)" class="btn btn-primary col">Clear</button>
    </div>
 
 </div>
@@ -51,3 +51,35 @@
 <div id="d2"></div>
 </body>
 </html>
+
+<script>
+ function operation(elem) 
+         { 
+             
+           let val=(elem.innerHTML)
+           if(document.getElementById("hello").value===undefined){
+            document.getElementById("hello").value=""
+           }
+          document.getElementById("hello").value+=val ;
+            console.log(document.getElementById("hello").value)
+            document.getElementById("hello").innerHTML= document.getElementById("hello").value
+         } 
+           
+        
+         function calculate() 
+         { 
+             let x = document.getElementById("hello").value 
+             let y = eval(x) 
+             document.getElementById("hello").value = y 
+             document.getElementById("hello").innerHTML= document.getElementById("hello").value
+            
+         } 
+           
+         
+         function clean(v) 
+         { 
+        
+             document.getElementById("hello").value="" ;
+             document.getElementById("hello").innerHTML=""
+         } 
+</script>
