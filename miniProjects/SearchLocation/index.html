@@ -1,0 +1,95 @@
+<title>Zomato</title>
+<head>
+     <link rel="stylesheet" href="C:/Users/ANIKET SINHA/bootstrap-4.5.2-dist/css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+<body>
+ <img class="image container-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSD8zUqM8Twa51CprCahEv2SD9QOsgwcXwFJg&usqp=CAU">
+ <div class="container-fluid pos">
+     <div class="row">
+     <div class="col-2 py-2" ><h3>Zomato</h3></div>
+     <div class="col m-3" align="right"><button class="btn btn-primary">Sign Up</button></div>
+     </div>
+      <div class="row">
+          <div class=" mx-auto">
+           <button onclick="fetchapi()" class="btn btn-outline-dark btn-success">Search city</button>
+           <input class="py-2 btn-outline-dark h" id="something">
+          </div>   
+      </div>
+ </div>
+
+<div class="container">    
+    <div class="row" id="addelement">
+    </div>
+</div>
+
+<span id="allRestaurant"></span>
+<span id="allLocation"></span>
+</body>
+
+<script>
+    let allRestaurant=document.getElementById("allRestaurant")
+    let allLocation=document.getElementById("allLocation")
+    function fetchapi(){
+          const city=document.getElementById("something").value; 
+          const url="https://developers.zomato.com/api/v2.1/locations?query="+city;
+          fetch(url,{headers:{"user-key" : "31f9c485c2a78fcf0a53b9ef7fe08a97"}}).then((response)=>{return response.json()})
+          .then((response)=>{
+            console.log(response) 
+         let lat=response.location_suggestions[0].latitude;
+         let lon=response.location_suggestions[0].longitude;
+         let urlLat="https://developers.zomato.com/api/v2.1/geocode?lat="+lat+"&lon="+lon;
+      fetch(urlLat,{headers:{"user-key" : "31f9c485c2a78fcf0a53b9ef7fe08a97"}}).then((response)=>{return response.json()})
+     .then((response)=>{
+       console.log(response)
+         for(let i=0;i<response.nearby_restaurants.length;i++){
+            let checkRestaurant=document.createElement("span")
+            let checkLocation=document.createElement("span")
+       console.log(response.nearby_restaurants[i].restaurant.name);
+        console.log(response.nearby_restaurants[i].restaurant.location.address);
+       checkRestaurant.innerHTML=response.nearby_restaurants[i].restaurant.name
+        checkLocation.innerHTML=response.nearby_restaurants[i].restaurant.location.address
+        allRestaurant.appendChild(checkRestaurant)
+        allLocation.appendChild(checkLocation)
+         } 
+     })
+          })
+    
+    }
+
+
+</script>
+
+
+<style>
+    .co-white{
+        color:white;
+        padding :3px;
+    }
+    .change {
+        display:flex;
+        
+    }
+    
+    * {
+      margin: 0;
+      padding : 0px;
+      border :border-box; 
+    
+    }
+    .image {
+    max-width:100%;
+    max-height:50%;
+    padding:10px 0px 0px 0px;  
+        
+    }
+    .pos {
+        top:10px;
+        left :10px;
+        position: absolute;
+        font:small bolder white;
+        color: white;
+    
+    }
+</style>

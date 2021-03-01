@@ -52,6 +52,6 @@ function checkSubmit()
 
 function myfunction(){
 
-
+  console.log(p1,p2)
     location.href='./startGame/';
 }
